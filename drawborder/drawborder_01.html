@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>DRAW BORDER</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<style>
+        *{padding: 0; margin:0; border: 0;}
+        h1 {font-size: 30px;font-weight: bold;text-align: center;padding:20px 0;}
+        h2 {font-size: 12px;text-align: center;padding-bottom: 20px;}
+
+        #p_wrapper {overflow: hidden;width: 980px;margin:0 auto;}
+
+        .lineEffect ul:after {display: block;clear: both;content: '';}
+        .lineEffect ul li {float: left;position: relative;display: block;width: 461px;height: 313px;margin: 10px;text-align: center;overflow: hidden;box-sizing: border-box;}
+        .lineEffect ul li.move a {
+            transition: all 300ms ease-in-out;
+        }
+        .lineEffect ul li a.block {display: block;width: 461px;height: 313px;margin:0 auto;text-align: center;line-height: 1.2;overflow: hidden;box-sizing: border-box;text-indent: -9999px;}
+        .lineEffect ul li a:hover {transform : scale(1.01, 1.01);}
+
+        .lineEffect ul li:first-child a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093027698851_0_0.jpg") no-repeat center center;background-size: cover;}
+        .lineEffect ul li:first-child + li a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093007805498_0_0.jpg") no-repeat center center;background-size: cover;}
+
+        .lineEffect ul li:hover .drawborder-top {transition : height 200ms ease-in-out 0s;height:5px;}
+        .lineEffect ul li:hover .drawborder-right {transition : width 200ms ease-in-out 0s;width:5px;}
+        .lineEffect ul li:hover .drawborder-bottom {transition : height 200ms ease-in-out 0s;height:5px;}
+        .lineEffect ul li:hover .drawborder-left {transition : width 200ms ease-in-out 0s;width:5px;}
+
+        .drawborder {position: absolute;z-index: 2;background:#f00;}
+
+        .drawborder-top {
+            height: 0;
+            top:0;
+            left:0;
+            right:0;
+        }
+        .drawborder-right {
+            width: 0;
+            top:0;
+            right:0;
+            bottom:0;
+        }
+        .drawborder-bottom {
+            height: 0;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .drawborder-left {
+            width: 0;
+            top:0;
+            left:0;
+            bottom:0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- wrap -->
+<div id="p_wrapper">
+
+    <h1>DRAW BORDER</h1>
+	<h2>이 버전은 javascript로 만들어져 있습니다. IE 10이상에서 작동됩니다.</h2>
+
+    <div class="lineEffect">
+    	<ul>
+            <li>
+                <a href="#" class="block">
+                    <div class="block-texts">
+                        <h1>BorderLine</h1>
+                        <h2>이버전은 javascript로 만들어져 있습니다.</h2>
+                        <h3>IE 10이상에서 작동됩니다.</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="block">
+                    <div class="block-texts">
+                        <h1>BorderLine</h1>
+                        <h2>이버전은 javascript로 만들어져 있습니다.</h2>
+                        <h3>IE 10이상에서 작동됩니다.</h3>
+                    </div>
+                </a>
+            </li>
+    	</ul>
+    </div>
+
+</div>
+<!-- //wrap -->
+
+<script>
+    /*!
+     * drawBorder - 테두리 그리기 효과 플러그인
+     * @param {object} opt
+     * @returns {object}
+     */
+
+    var comm = {},
+        drawBorder = {} ,
+        DrawBorder = {} ,
+        isIE = navigator.userAgent.indexOf('MSIE') > 0;
+
+    DrawBorder = (function WrapFn(option) {
+
+        var tag = {}, opt = {};
+
+        function BorderWrap(option) {
+            (function objSet() {
+
+                opt.speed = 300;
+                opt.targetName = option.targetName;
+                opt.className = option.className;
+
+                tag.mother = opt.targetName;
+                tag.elm = document.createElement("span");
+                tag.borderArr = [
+                    opt.className + " " + opt.className + "-top",
+                    opt.className + " " + opt.className + "-right",
+                    opt.className + " " + opt.className + "-bottom",
+                    opt.className + " " + opt.className + "-left",
+                ];
+                tag.elmClone = null;
+                tag.span = null;
+            }());
+            (function prepareSet(){
+                tag.borderArr.forEach(function (obj, idx) {
+                    tag.elmClone = tag.elm.cloneNode();
+                    tag.elmClone.className = tag.borderArr[idx];
+                    tag.mother.appendChild(tag.elmClone);
+
+                    tag.mother.className = "move";
+                });
+            }());
+            (function eventSet() {
+                tag.mother.addEventListener('mouseenter', evtHandler);
+            }());
+        }
+
+        // 이벤트 핸들러 추가
+        function evtHandler() {
+            // console.log( this );
+        }
+        return BorderWrap;
+    }());
+
+
+    /* 멀티 이벤트 리스너 */
+    comm.addEvent = function (obj , evts , handler) {
+        if (!isIE) {
+            var evts = evts.split(' ');
+            [].forEach.call(evts , function (evt) {
+                obj.addEventListener(evt , handler , false);
+            });
+        } else {
+            var evts = evts.split(' ');
+            obj.attachEvent('on' + evts, handler , false);
+        }
+    };
+
+    comm.addEvent (window , 'load' , function (){
+        var elm = document.querySelector(".lineEffect"),
+            targetElement = elm.querySelectorAll("li");
+
+        [].forEach.call(targetElement , function (target){
+            drawBorder = new DrawBorder({
+                targetName : target,
+                className  : "drawborder"
+            });
+        });
+    });
+
+</script>
+</body>
+</html>
