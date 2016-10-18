@@ -1,2 +1,2 @@
-# Interaction-
+# Interaction
 Interaction Guide
