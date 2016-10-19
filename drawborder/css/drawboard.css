@@ -1,0 +1,90 @@
+.lineEffect ul:after {display: block;clear: both;content: '';}
+.lineEffect ul li {float: left;position: relative;display: block;width: 461px;height: 313px;margin: 10px;text-align: center;overflow: hidden;box-sizing: border-box;}
+.lineEffect ul li.move a {
+    transition: all 300ms ease-in-out;
+}
+.lineEffect ul li a.block {display: block;width: 461px;height: 313px;margin:0 auto;text-align: center;line-height: 1.2;overflow: hidden;box-sizing: border-box;text-indent: -9999px;}
+.lineEffect ul li a:hover {transform : scale(1.01, 1.01);}
+.lineEffect ul li:first-child a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093027698851_0_0.jpg") no-repeat center center;background-size: cover;}
+.lineEffect ul li:first-child + li a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093007805498_0_0.jpg") no-repeat center center;background-size: cover;}
+.lineEffect ul li:hover .drawborder-top {transition : height 200ms ease-in-out 0s;height:5px;}
+.lineEffect ul li:hover .drawborder-right {transition : width 200ms ease-in-out 0s;width:5px;}
+.lineEffect ul li:hover .drawborder-bottom {transition : height 200ms ease-in-out 0s;height:5px;}
+.lineEffect ul li:hover .drawborder-left {transition : width 200ms ease-in-out 0s;width:5px;}
+.drawborder {position: absolute;z-index: 2;background:#f00;}
+/*마우스 오버시 라인효과의 굵기를 표시해줍니다.*/
+.drawborder-top {
+    height: 0;
+    top:0;
+    left:0;
+    right:0;
+}
+.drawborder-right {
+    width: 0;
+    top:0;
+    right:0;
+    bottom:0;
+}
+.drawborder-bottom {
+    height: 0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.drawborder-left {
+    width: 0;
+    top:0;
+    left:0;
+    bottom:0;
+}
+
+
+.lineEffect2 ul:after {display: block;clear: both;content: '';}
+.lineEffect2 ul li {float: left;position: relative;display: block;width: 461px;height: 313px;margin: 10px;text-align: center;overflow: hidden;box-sizing: border-box;}
+.lineEffect2 ul li.move a {
+    transition: all 300ms ease-in-out;
+}
+.lineEffect2 ul li a.block {display: block;width: 461px;height: 313px;margin:0 auto;text-align: center;line-height: 1.2;overflow: hidden;box-sizing: border-box;text-indent: -9999px;}
+.lineEffect2 ul li a:hover {transform : scale(1.01, 1.01);}
+
+.lineEffect2 ul li:first-child a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093027698851_0_0.jpg") no-repeat center center;background-size: cover;}
+.lineEffect2 ul li:first-child + li a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093007805498_0_0.jpg") no-repeat center center;background-size: cover;}
+
+.lineEffect2 ul li:hover .drawborder2-top {transition : width 100ms linear 0s;width:100%;}
+.lineEffect2 ul li:hover .drawborder2-right {transition : height 100ms linear 100ms;height:100%;}
+.lineEffect2 ul li:hover .drawborder2-bottom {transition : width 100ms linear 200ms;width:100%;}
+.lineEffect2 ul li:hover .drawborder2-left {transition : height 100ms linear 300ms;height:100%;}
+.drawborder2 {width: 3px;position: absolute;z-index: 2;background:#000;}
+
+.drawborder2-top {
+    height: 3px;
+    width: 0;
+}
+.drawborder2-right {
+    width: 3px;
+    height: 0;
+}
+.drawborder2-bottom {
+    height: 3px;
+    width: 0;
+}
+.drawborder2-left {
+    width: 3px;
+    height: 0;
+}
+.drawborder2-top,
+.drawborder2-right {
+    top: 0;
+}
+.drawborder2-right,
+.drawborder2-bottom {
+    right: 0;
+}
+.drawborder2-bottom,
+.drawborder2-left {
+    bottom: 0;
+}
+.drawborder2-left,
+.drawborder2-top {
+    left: 0;
+}
