@@ -7,10 +7,10 @@
 .lineEffect ul li a:hover {transform : scale(1.01, 1.01);}
 .lineEffect ul li:first-child a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093027698851_0_0.jpg") no-repeat center center;background-size: cover;}
 .lineEffect ul li:first-child + li a {background: url("http://image.gmarket.co.kr/service_image/2016/09/09/20160909093007805498_0_0.jpg") no-repeat center center;background-size: cover;}
-.lineEffect ul li:hover .drawborder-top {transition : height 200ms ease-in-out 0s;height:5px;}
-.lineEffect ul li:hover .drawborder-right {transition : width 200ms ease-in-out 0s;width:5px;}
-.lineEffect ul li:hover .drawborder-bottom {transition : height 200ms ease-in-out 0s;height:5px;}
-.lineEffect ul li:hover .drawborder-left {transition : width 200ms ease-in-out 0s;width:5px;}
+.lineEffect ul li:hover .drawborder-top {transition : height 100ms ease-in-out 0s;height:5px;}
+.lineEffect ul li:hover .drawborder-right {transition : width 100ms ease-in-out 0s;width:5px;}
+.lineEffect ul li:hover .drawborder-bottom {transition : height 100ms ease-in-out 0s;height:5px;}
+.lineEffect ul li:hover .drawborder-left {transition : width 100ms ease-in-out 0s;width:5px;}
 .drawborder {position: absolute;z-index: 2;background:#f00;}
 /*마우스 오버시 라인효과의 굵기를 표시해줍니다.*/
 .drawborder-top {
