@@ -6,4 +6,4 @@
   1. [zoommove](http://emersonthompson.com.br/zoomove/)
   2. [drawborder #type_01](./drawborder/drawborder_01.html)
   3. [drawborder #type_02](./drawborder/drawborder_02.html)
-	1. [drawborder ( sample )](https://github.com/Guide-Line/Interaction-/blob/master/drawborder/drawborder.html) : 마우스 오버시 테두리모션
+	1. [drawborder ( sample )](https://github.com/Guide-Line/Interaction-/tree/master/drawborder) : 마우스 오버시 테두리모션
